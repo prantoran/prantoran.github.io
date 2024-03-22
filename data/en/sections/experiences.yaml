@@ -11,63 +11,92 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Example Co.
-    url: "https://www.example.com"
-    location: Dhaka Branch
-    logo: /images/sections/experiences/company1.jpg
+    name: Amazon Web Services.
+    url: "https://aws.amazon.com"
+    location: Vancouver, British Columbia, Canada
+    logo: /images/sections/experiences/aws.png
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/experiences/company1.jpg
     # company overview
-    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
-  positions:
-  - designation: Senior Software Engineer
-    start: Nov 2019
-    # don't provide end date if you are currently working there. It will be replaced by "Present"
-    # end: Dec 2020
-    # give some points about what was your responsibilities at the company.
-    responsibilities:
-    - Design and develop XYZ tool for ABC task
-    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
-    - Lead backend team.
-
-  - designation: Junior Software Engineer
-    start: Nov 2017
-    end: Oct 2019
-    responsibilities:
-    - Implement and test xyz feature for abc tool.
-    - Support client for abc tool.
-    - Learn k,d,w technology for xyz.
-
-- company:
-    name: PreExample Co.
-    url: "https://www.example.com"
-    location: Nowhere
-    logo: /images/sections/experiences/company2.jpg
-    # Can optionally show a different logo for dark theme
-    # darklogo: /images/sections/experiences/company2.jpg
-    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+    overview: Amazon Web Services is a widely recognized cloud computing service provider and is part of Amazon.
   positions:
   - designation: Software Engineer
-    start: March 2016
-    end: May 2017
+    start: April 2022
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    end: Sept 2023
+    # give some points about what was your responsibilities at the company.
     responsibilities:
-    - Write lots of example codes.
-    - Read lots of examples.
-    - See lots of example videos.
+    - As a core member of Application AutoScaling, I have gained extensive knowledge in service-oriented architectures and cloud infrastructures. 
+    - Autoscaling is an important feature for reducing costs and I have worked on integrating auto scaling with popular AWS products such as EC2, DynamoDB, Lambda, CloudWatch, CloudFormation, CDK, SageMaker, ECS, EMR and ElasticCache during expansion to new regions.
+    - I have owned projects end to end by making design plans reviewed by my team, task breakdown, security approvals, implementing the updates, deploying world wide, and implementing validation and load tests.
+    - Designed and implemented an improved throttling process by setting up rules for groups that accounts can join to get higher throttling rates. The upgrade expedited new region builds by one week as other teams can independently join groups with higher limits without requiring manual update from our team.
+    - Collaborated on enabling custom math expressions that combine more than one metrics for setting up auto scaling configurations.
+    - I am experienced in operations as I have on-call experience tackling multiple critical team-wide and a number of organization wide severities.
 
 - company:
-    name: Intern Counting Company (ICC).
-    url: "https://www.example.com"
-    location: Intern Land
-    logo: /images/sections/experiences/company3.jpg
+    name: The University of British Columbia - Okanagan
+    url: "https://ok.ubc.ca"
+    location: 3333 University Way, Kelowna, BC, Canada V1V 1V7
+    logo: /images/sections/experiences/ubco.jpg
+    # Can optionally show a different logo for dark theme
+    # darklogo: /images/sections/experiences/company2.jpg
+    overview: The University of British Columbia is one of the top universities in the world for education and research. I completed my Masters in Computer Science from the Okanagan campus of the university.
+  positions:
+  - designation: Graduate Research Assistant
+    start: Sept 2019
+    end: April 2022
+    responsibilities:
+    - I worked on various research projects as part of my Masters thesis.
+    - I created a virtual interface using commodity webcam with which the users can interact in mid-air space. I am also aiming to incorporate a depth camera to detect tap/click gestures.
+    - I have developed applications for smartwatch prototype augmented with a joystick. The applications I developed include an offline map and a 2D game.
+    - I have trained models using Tensorflow to recognize gestures of a stretchable resistive watchband prototype and developed a prototype system that concurrently listened for requests, classified gesture patterns and returned classifications back to the smartwatch.
+
+
+- company: 
+    name: Google Summer of Code - MediaPipe
+    url: https://summerofcode.withgoogle.com/archive/2021/organizations/5917807371354112
+    location: California, USA
+    logo: /images/sections/experiences/gsoc.png
+    overview: I worked for the organization Mediapipe (Google LLC) as part of Google Summer of Code 2021.
+  positions:
+  - designation: Student Developer
+    start: May 2021
+    end: Aug 2021
+    responsibilities:
+    - I worked on building a web video effects app using MediaPipe, WebAssembly and WebGL.
+    - I set up C++ to WebAssembly compilation in the MediaPipe Bazel build pipeline.
+    - I created WASM binaries of frequently used MediaPipe examples.
+
+- company:
+    name: Pathao
+    url: "https://pathao.com"
+    location: Dhaka, Bangladesh
+    logo: /images/sections/experiences/pathao.png
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/experiences/company3.jpg
-    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
+    overview: Pathao is a leading ride-sharing and food delivery company in Bangladesh.
   positions:
-  - designation: Intern
-    start: Jun 2015
-    end: Jan 2016
+  - designation: Software Engineer
+    start: April 2018
+    end: July 2019
     responsibilities:
-    - Count lost of interns.
-    - Count more interns.
-    - Count me as an intern.
+    - I developed microservices in Go and used Kubernetes and Google Cloud Platform for deployment
+    - I worked on refactoring a number of components of a monolith codebase written in PHP into Go microservices that enabled faster response time which resulted in higher customer retention and completed transactions.
+    - I implemented event sourcing paradigm for decoupling communications among services into events through an event bridge.
+
+- company:
+    name: Meghdut Analytics
+    location: Dhaka, Bangladesh
+    logo: /images/sections/experiences/meghdut.png
+    overview: 
+  positions:
+  - designation: Software Engineer
+    start: August 2017
+    end: Feb 2018
+    responsibilities:
+    - I developed and maintained features using Go and ReactJS.
+  - designation: Software Engineer Intern
+    start: Feb 2017
+    end: July 2017
+    responsibilities:
+    - I onboared to the main code repository and worked on adding new features.

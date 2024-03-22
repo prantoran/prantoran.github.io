@@ -213,19 +213,6 @@
                 href="http://localhost:1313/posts/introduction/"
                 />
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2020-06-08T08:06:25+06:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="bn"
-                href="http://localhost:1313/bn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/"
-                />
-  </url><url>
     <loc>http://localhost:1313/tags/markdown/</loc>
     <lastmod>2020-06-08T08:06:25+06:00</lastmod>
   </url><url>
@@ -244,6 +231,19 @@
   </url><url>
     <loc>http://localhost:1313/tags/multi-lingual/</loc>
     <lastmod>2020-06-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2020-06-08T08:06:25+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="bn"
+                href="http://localhost:1313/bn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/"
+                />
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2020-06-08T08:06:25+06:00</lastmod>
