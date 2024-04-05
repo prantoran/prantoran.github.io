@@ -16,6 +16,8 @@ buttons:
   filter: "professional"
 - name: Academic
   filter: "academic"
+- name: Data Engineering
+  filter: "de"
 - name: Hobby
   filter: "hobby"
 
@@ -44,6 +46,12 @@ projects:
   summary: Minimum Heap implementation in GO.
   tags: ["hobby", "Go"]
 
+- name: METER-Weather-reports
+  role: Developer
+  timeline: "March 2024 - April 2024"
+  repo: https://github.com/prantoran/METER-Weather-reports
+  summary: A visualization project using Mage for ETL, GCS for storage, ApacheSpark via DataProc for stream, BigQuery for analysis and Looker Studio for visualization dashboard.
+  tags: ["de", "hobby"]
 # - name: A sample academic paper
 #   role: Team Lead
 #   timeline: "Jan 2017 - Nov 2017"
