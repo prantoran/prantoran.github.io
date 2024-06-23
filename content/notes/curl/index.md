@@ -3,8 +3,8 @@ title: Curl Snippets
 weight: 20
 menu:
   notes:
-    name: Basic Types
-    identifier: notes-go-basics-types
+    name: Curl Snippets
+    identifier: notes-curl
     weight: 20
 ---
 
