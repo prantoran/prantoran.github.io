@@ -20,10 +20,10 @@ company:
 
 # a summary about you
 summary: 
-  - I am a passionate software engineer with over 4 years of working experience. 
-  - Currently I am working on malware analysis using C++.
-  - I have developed backend services using GO and Java. 
-  - I have also worked on integrating computer vision and web development using MediaPipe, C++ and WebAssembly.
+  - "I am a passionate software engineer with over 4 years of working experience."
+  - "Currently I am working on malware analysis using C++."
+  - "I have developed backend services using GO and Java."
+  - "I have also worked on integrating computer vision and web development using MediaPipe, C++ and WebAssembly."
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
