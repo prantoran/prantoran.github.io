@@ -4,8 +4,8 @@ weight: 210
 menu:
   notes:
     name: Interpreted vs Compiled
-    identifier: notes-progamming-nterpreted_vs_compiled
-    parent: notes-progamming
+    identifier: notes-progamming-interpreted_vs_compiled
+    parent: notes-programming
     weight: 10
 ---
 
