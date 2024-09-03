@@ -9,13 +9,4 @@ menu:
     weight: 10
 ---
 
-
-<!-- Decompilers -->
-{{< note title="Decompilers" >}}
-
-Decompilers list:
-- Angr
-- FoxDex
-- Ghidra
-
-{{< /note >}}
+# Decompilers
