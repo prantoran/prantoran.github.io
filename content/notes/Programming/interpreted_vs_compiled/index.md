@@ -18,7 +18,7 @@ Interpreted languages
 
 Compiled languages
 - Delegate semantics to a traget languages
-- Ahead-f-to,e (AOT) compilers
+- Ahead-of-time (AOT) compilers
 - Just-in-time (JIT) compilers
 - AST-transformers (transpilers)
 
