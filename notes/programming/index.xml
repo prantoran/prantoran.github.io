@@ -1,3 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming Notes on Pinku's Adventures</title><link>https://prantoran.github.io/notes/programming/</link><description>Recent content in Programming Notes on Pinku's Adventures</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://prantoran.github.io/notes/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Interpreted vs Compiled Languages</title><link>https://prantoran.github.io/notes/programming/interpreted_vs_compiled/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/programming/interpreted_vs_compiled/</guid><description> Interpreted vs Compiled Interpreted languages
-Implement semantics themselves AST-based (recursive) interpreteers Bytecode-interpreters (VM) Compiled languages
-Delegate semantics to a traget languages Ahead-of-time (AOT) compilers Just-in-time (JIT) compilers AST-transformers (transpilers)</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming Notes on Pinku's Adventures</title><link>https://prantoran.github.io/notes/programming/</link><description>Recent content in Programming Notes on Pinku's Adventures</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://prantoran.github.io/notes/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Interpreted vs Compiled Languages</title><link>https://prantoran.github.io/notes/programming/interpreted_vs_compiled/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/programming/interpreted_vs_compiled/</guid><description>&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>Interpreted vs Compiled&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;p>Interpreted languages&lt;/p>
+&lt;ul>
+&lt;li>Implement semantics themselves&lt;/li>
+&lt;li>AST-based (recursive) interpreteers&lt;/li>
+&lt;li>Bytecode-interpreters (VM)&lt;/li>
+&lt;/ul>
+&lt;p>Compiled languages&lt;/p>
+&lt;ul>
+&lt;li>Delegate semantics to a traget languages&lt;/li>
+&lt;li>Ahead-of-time (AOT) compilers&lt;/li>
+&lt;li>Just-in-time (JIT) compilers&lt;/li>
+&lt;li>AST-transformers (transpilers)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

@@ -1,9 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cybersecurity Notes on Pinku's Adventures</title><link>https://prantoran.github.io/notes/cybersecurity/</link><description>Recent content in Cybersecurity Notes on Pinku's Adventures</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://prantoran.github.io/notes/cybersecurity/index.xml" rel="self" type="application/rss+xml"/><item><title>Angr</title><link>https://prantoran.github.io/notes/cybersecurity/decompilers/angr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/decompilers/angr/</guid><description>Angr Rules:
-EagerReturnsSimplifier Adds additional return statements to the decompiled code to improve readabilit of the code, if the number of the &amp;ldquo;in edges&amp;rdquo; for the return node (i.e., in-degree of the return site) is less than a specified threshold Core libraries:
-SequenceWalker Used to traverse graphs For each decompiled function, angr constructs a corresponding abstract syntax tree (AST).
-When angr modifies the CFG (e.g., applies EagerReturnsSim- plifier), angr calls SequenceWalker to traverse the graph and modify nodes, e.</description></item><item><title>FoxDec</title><link>https://prantoran.github.io/notes/cybersecurity/decompilers/foxdec/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/decompilers/foxdec/</guid><description> FoxDec Freek Verbeek, Pierre Olivier, and Binoy Ravindran. Sound C code decompilation for a subset of x86-64 bi- naries. In Frank S. de Boer and Antonio Cerone, editors, Software Engineering and Formal Methods - 18th In- ternational Conference, SEFM 2020, Amsterdam, The Netherlands, September 14-18, 2020, Proceedings, vol- ume 12310 of Lecture Notes in Computer Science, pages 247–264. Springer, 2020.</description></item><item><title>Ghidra</title><link>https://prantoran.github.io/notes/cybersecurity/decompilers/ghidra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/decompilers/ghidra/</guid><description>Ghidra Internally, Ghidra uses debug information, stored in the binary in the DWARF format, from binary to help recover the function prototype of the decompiled function.
-For functions with the same name with different argu- ments (i.e., function overloading), compilers store multiple entities in DWARF sections. However, Ghidra may fail to match the correct entity for such a function. Consequently, Ghidra suspends the analysis of this function, which results in its decompiled function lacking arguments, i.</description></item><item><title>TLSH</title><link>https://prantoran.github.io/notes/cybersecurity/tlsh/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/tlsh/</guid><description>TLSH Trend Locality Sensitive Hash.
-Standard TLSH hash is 70 characters long.
-All 3-grams from a sliding window of 5 bytes are used to compute an array of bucket counts, which are used to form the digest body.
-Based on the calculation of bucket counts (as calculated above) the three quartiles are calculated (referred to as q1, q2, and q3 respectively).
-The digest body is constructed based on the values of the quartiles in the array of bucket counts, using two bits per 128 buckets to construct a 32 byte digest.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cybersecurity Notes on Pinku's Adventures</title><link>https://prantoran.github.io/notes/cybersecurity/</link><description>Recent content in Cybersecurity Notes on Pinku's Adventures</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://prantoran.github.io/notes/cybersecurity/index.xml" rel="self" type="application/rss+xml"/><item><title>Angr</title><link>https://prantoran.github.io/notes/cybersecurity/decompilers/angr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/decompilers/angr/</guid><description>&lt;!-- Angr -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>Angr&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;p>Rules:&lt;/p>
+&lt;ul>
+&lt;li>EagerReturnsSimplifier
+&lt;ul>
+&lt;li>Adds additional return statements to the decompiled code to improve readabilit of the code, if the number of the &amp;ldquo;in edges&amp;rdquo; for the return node (i.e., in-degree of the return site) is less than a specified threshold&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Core libraries:&lt;/p>
+&lt;ul>
+&lt;li>SequenceWalker
+&lt;ul>
+&lt;li>Used to traverse graphs&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>For each decompiled function, angr constructs a corresponding abstract syntax tree (AST).&lt;/p>
+&lt;p>When angr modifies the CFG (e.g., applies EagerReturnsSim- plifier), angr calls SequenceWalker to traverse the graph and modify nodes, e.g., insert additional return statements on the AST.&lt;/p></description></item><item><title>FoxDec</title><link>https://prantoran.github.io/notes/cybersecurity/decompilers/foxdec/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/decompilers/foxdec/</guid><description>&lt;!-- FoxDec -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>FoxDec&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">Freek Verbeek, Pierre Olivier, and Binoy Ravindran.
+Sound C code decompilation for a subset of x86-64 bi-
+naries. In Frank S. de Boer and Antonio Cerone, editors,
+Software Engineering and Formal Methods - 18th In-
+ternational Conference, SEFM 2020, Amsterdam, The
+Netherlands, September 14-18, 2020, Proceedings, vol-
+ume 12310 of Lecture Notes in Computer Science, pages
+247–264. Springer, 2020.&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item><item><title>Ghidra</title><link>https://prantoran.github.io/notes/cybersecurity/decompilers/ghidra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/decompilers/ghidra/</guid><description>&lt;!-- Ghidra -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>Ghidra&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;p>Internally, Ghidra uses debug information, stored in the binary in the &lt;strong>DWARF&lt;/strong> format, from binary to help recover the function prototype of the decompiled function.&lt;/p>
+&lt;p>For functions with the same name with different argu- ments (i.e., function overloading), compilers store multiple entities in DWARF sections. However, Ghidra may fail to match the correct entity for such a function. Consequently, Ghidra suspends the analysis of this function, which results in its decompiled function lacking arguments, i.e., void.&lt;/p></description></item><item><title>TLSH</title><link>https://prantoran.github.io/notes/cybersecurity/tlsh/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://prantoran.github.io/notes/cybersecurity/tlsh/</guid><description>&lt;!-- TLSH -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>TLSH&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;p>Trend Locality Sensitive Hash.&lt;/p>
+&lt;p>Standard TLSH hash is 70 characters long.&lt;/p>
+&lt;p>All 3-grams from a sliding window of 5 bytes are used to compute an array of bucket counts, which are used to form the digest body.&lt;/p>
+&lt;p>Based on the calculation of bucket counts (as calculated above) the three quartiles are calculated (referred to as q1, q2, and q3 respectively).&lt;/p>
+&lt;p>The digest body is constructed based on the values of the quartiles in the array of bucket counts, using two bits per 128 buckets to construct a 32 byte digest.&lt;/p></description></item></channel></rss>
