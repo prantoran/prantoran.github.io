@@ -3,6 +3,6 @@ title: Ubuntu
 menu:
   sidebar:
     name: Package Installations
-    identifier: category
+    identifier: ubuntu
     weight: 20
 ---
