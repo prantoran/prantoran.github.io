@@ -2,7 +2,7 @@
 name: "Pinku Deb Nath"
 nickname: "Pinku"
 # greeting message before your name. it will default to "Hi! I am" if not provided
-greeting: "Hi!, I am"
+greeting: "Hi! I am"
 image: "images/author/pinku.png"
 # give your some contact information. they will be used in the footer
 contactInfo:
@@ -21,9 +21,11 @@ contactInfo:
     text: "prantoran"
 # some summary about what you do
 summary:
-  - I am a Software Engineer
-  - I am a Data Engineer
+  - Software Engineer
+  - Platform Engineer
+  - Systems Engineer
+  - ML Engineer
   # - I am a Devops
   # - I love servers
   - I love to work on fun projects
-  - My interests are in Computer Vision, Operating Systems, Networks and Reinforcement Learning
+  - My interests are in Platform engineering, Operating Systems, Networks, and RL
