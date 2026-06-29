@@ -3,7 +3,7 @@ section:
   name: Experiences
   id: experiences
   enable: true
-  weight: 3
+  weight: 2
   showOnNavbar: true
   # Can optionally hide the title in sections
   # hideTitle: true 
@@ -11,27 +11,39 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Amazon Web Services.
+    name: Huawei Research Centre
+    url: "https://www.huawei.com"
+    location: Burnaby, BC, Canada
+    logo: /images/sections/experiences/huawei.png
+    overview: Huawei is a global technology leader committed to bringing digital to every person, home and organization for a fully connected, intelligent world.
+  positions:
+  - designation: Software Engineer
+    start: June 2024
+    end: June 2026
+    responsibilities:
+    - Engineered custom executable packers in C++ to optimize system-level application efficiency and binary security.
+    - Customized features into public repositories such as modifying libarchive to extract scripts from RAR format.
+    - Architectured high-performance cloud sandbox prototypes using virtualization technologies (QEMU, KVM, Docker) to enhance security isolation and container performance.
+    - Conducted low-level systems research directly applicable to resource management and secure database isolation, ensuring robust platform stability.
+
+- company:
+    name: Amazon Web Services (AWS)
     url: "https://aws.amazon.com"
-    location: Vancouver, British Columbia, Canada
+    location: Vancouver, BC, Canada
     logo: /images/sections/experiences/aws.png
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/experiences/company1.jpg
     # company overview
     overview: Amazon Web Services is a widely recognized cloud computing service provider and is part of Amazon.
   positions:
-  - designation: Software Engineer
-    start: April 2022
-    # don't provide end date if you are currently working there. It will be replaced by "Present"
+  - designation: Software Development Engineer
+    start: May 2022
     end: Sept 2023
-    # give some points about what was your responsibilities at the company.
     responsibilities:
-    - As a core member of Application AutoScaling, I have gained extensive knowledge in service-oriented architectures and cloud infrastructures. 
-    - Autoscaling is an important feature for reducing costs and I have worked on integrating auto scaling with popular AWS products such as EC2, DynamoDB, Lambda, CloudWatch, CloudFormation, CDK, SageMaker, ECS, EMR and ElasticCache during expansion to new regions.
-    - I have owned projects end to end by making design plans reviewed by my team, task breakdown, security approvals, implementing the updates, deploying world wide, and implementing validation and load tests.
-    - Designed and implemented an improved throttling process by setting up rules for groups that accounts can join to get higher throttling rates. The upgrade expedited new region builds by one week as other teams can independently join groups with higher limits without requiring manual update from our team.
-    - Collaborated on enabling custom math expressions that combine more than one metrics for setting up auto scaling configurations.
-    - I am experienced in operations as I have on-call experience tackling multiple critical team-wide and a number of organization wide severities.
+    - Engineered distributed platform services in Java for the Application AutoScaling team, managing massive scale for many AWS services such as DynamoDB and Lambda.
+    - Designed and implemented a distributed throttling mechanism for account groups, functioning as a core self-service platform capability that removed manual operational bottlenecks.
+    - Owned end-to-end delivery of high-availability features, including security approval, worldwide deployment, and rigorous load testing.
+    - Managed critical on-call operations, resolving high-severity incidents to ensure the reliability of organization-wide scaling services.
 
 - company:
     name: The University of British Columbia - Okanagan
@@ -80,9 +92,9 @@ experiences:
     start: April 2018
     end: July 2019
     responsibilities:
-    - I developed microservices in Go and used Kubernetes and Google Cloud Platform for deployment
-    - I worked on refactoring a number of components of a monolith codebase written in PHP into Go microservices that enabled faster response time which resulted in higher customer retention and completed transactions.
-    - I implemented event sourcing paradigm for decoupling communications among services into events through an event bridge.
+    - Refactored legacy components into high-performance Go microservices, achieving a 10x improvement in response time.
+    - Designed an event-sourcing architecture to decouple services, significantly improving system fault tolerance and platform scalability.
+    - Deployed and orchestrated containerized applications using Docker and Kubernetes on GCP, streamlining CI/CD workflows.
 
 - company:
     name: Meghdut Analytics
@@ -91,12 +103,8 @@ experiences:
     overview: 
   positions:
   - designation: Software Engineer
-    start: August 2017
+    start: Feb 2017
     end: Feb 2018
     responsibilities:
-    - I developed and maintained features using Go and ReactJS.
-  - designation: Software Engineer Intern
-    start: Feb 2017
-    end: July 2017
-    responsibilities:
-    - I onboared to the main code repository and worked on adding new features.
+    - Worked on features for importing Google spreadsheets data using Go and creating responsive dashboards using React. This reduced manual work required by customers for uploading data into the platform.
+    - Implemented data aggregations using ElasticSearch and Go.

@@ -3,7 +3,7 @@ section:
   name: দক্ষতা
   id: skills
   enable: true
-  weight: 2
+  weight: 5
   showOnNavbar: true
   template: sections/skills.html
   # Can optionally hide the title in sections

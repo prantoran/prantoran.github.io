@@ -2,3 +2,4 @@ resources/*
 node_modules/*
 **/*-sample.*
 tmp/*
+.DS_Store

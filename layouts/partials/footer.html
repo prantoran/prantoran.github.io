@@ -1,0 +1,117 @@
+<style>
+  .site-footer .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .site-footer .footer-col {
+    flex: 1;
+  }
+
+  .site-footer .footer-col-nav {
+    flex-basis: 60%;
+  }
+
+  .site-footer .footer-col-contact {
+    flex-basis: 40%;
+    text-align: left;
+  }
+
+  .site-footer .footer-section-list,
+  .site-footer .footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .site-footer .footer-section-list li,
+  .site-footer .footer-contact-list li {
+    margin: 0.5rem 0;
+  }
+
+  .site-footer .footer-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .site-footer .footer-contact-list li i {
+    display: inline-block;
+    width: 1.2rem;
+    text-align: center;
+  }
+
+  .site-footer .footer-section-list a,
+  .site-footer .footer-contact-list a {
+    text-decoration: none;
+  }
+
+  .site-footer .footer-col-contact a {
+    margin-left: 0;
+  }
+
+  .site-footer .footer-bottom {
+    margin-top: 1.5rem;
+  }
+</style>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div class="footer-col footer-col-nav">
+          <h5>Navigation</h5>
+          <ul class="footer-section-list">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#experiences">Experiences</a></li>
+            <li><a href="/#education">Education</a></li>
+            <li><a href="/#projects">Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-contact">
+          <h5>Contact me:</h5>
+          <ul class="footer-contact-list">
+            {{ with $.Site.Data.en.author.contactInfo.email }}
+            <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:{{ . }}">{{ . }}</a></li>
+            {{ end }}
+
+            <!-- {{ with $.Site.Data.en.author.contactInfo.facebook.url }}
+            <li><i class="fab fa-facebook" aria-hidden="true"></i> <a href="{{ . }}">{{ $.Site.Data.en.author.contactInfo.facebook.text }}</a></li>
+            {{ end }} -->
+
+            {{ with $.Site.Data.en.author.contactInfo.github }}
+            <li><i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/{{ . }}">{{ . }}</a></li>
+            {{ end }}
+
+            {{ with $.Site.Data.en.author.contactInfo.linkedin }}
+            <li><i class="fab fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/{{ . }}">{{ $.Site.Data.en.author.contactInfo.linkedin }}</a></li>
+            {{ end }}
+
+            {{ with $.Site.Data.en.author.contactInfo.twitter.url }}
+            <li><i class="fab fa-twitter" aria-hidden="true"></i> <a href="{{ . }}">{{ $.Site.Data.en.author.contactInfo.twitter.text }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      {{ if $.Site.Params.footer.credentials.enable }}
+      <div class="footer-credits">
+        <p>© {{ now.Format "2006" }} {{ $.Site.Title }}. All rights reserved.</p>
+      </div>
+      {{ end }}
+
+      {{ if $.Site.Params.footer.disclaimer.enable }}
+      <div class="footer-disclaimer">
+        {{ with $.Site.Params.footer.disclaimerText }}
+          <p>{{ . }}</p>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</footer>
