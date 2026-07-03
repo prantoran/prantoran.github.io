@@ -1,0 +1,294 @@
+{{ $author:= site.Data.author }}
+{{ if (index site.Data site.Language.Lang).author }}
+  {{ $author = (index site.Data site.Language.Lang).author }}
+{{ end }}
+
+{{ $name:="Jane Doe" }}
+{{ if $author.nickname }}
+  {{ $name = $author.nickname }}
+{{ else if $author.name }}
+  {{ $name = $author.name }}
+{{ end }}
+
+{{ $sections:= site.Data.sections }}
+{{ if (index site.Data site.Language.Lang).sections }}
+  {{ $sections = (index site.Data site.Language.Lang).sections }}
+{{ end }}
+
+{{ $authorImage:= "/images/default-avatar.png" }}
+{{ if $author.image }}
+  {{ $authorImage = $author.image }}
+{{ end }}
+{{ $authorImage := resources.Get $authorImage }}
+
+{{/* apply image processing. don't use "Fit" in svg or gif because its not supported */}}
+{{ if and $authorImage (and (ne $authorImage.MediaType.SubType "svg") ( ne $authorImage.MediaType.SubType "gif")) }}
+  {{ $authorImage = $authorImage.Fit "148x148" }}
+{{ end }}
+
+<div class="container-fluid home" id="home">
+  <canvas id="spaceBackground"></canvas>
+  <div class="container content text-center">
+    <img src="{{ $authorImage.RelPermalink }}"
+      class="rounded-circle mx-auto d-block img-fluid"
+      alt="Author Image"
+    />
+    <h1 class="greeting"> {{ $author.greeting }} {{ $name }}</h1>
+    {{ if $author.subtitle }}
+      <h2 class="greeting-subtitle">{{ $author.subtitle }}</h2>
+    {{ end }}
+    <div class="typing-carousel">
+      <span id="ityped" class="ityped"></span>
+      <span class="ityped-cursor"></span>
+    </div>
+    <ul id="typing-carousel-data">
+      {{ if $author.summary }}
+        {{ range $author.summary }}
+          <li>{{ . }}</li>
+        {{ end}}
+      {{ end }}
+    </ul>
+    {{ if $sections }}
+      {{ range first 1 (where (sort $sections "section.weight") ".section.enable" true) }}
+        {{ $sectionID := replace (lower .section.name) " " "-"  }}
+        {{ if .section.id }}
+          {{ $sectionID = .section.id }}
+        {{ end }}
+        <a href="#{{ $sectionID }}" class="arrow-center" aria-label="{{ i18n "read" }} {{ i18n "more" }} - {{ $name }}"><i class="arrow bounce fa fa-chevron-down"></i></a>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+
+<style>
+  .home {
+    position: relative;
+  }
+  #spaceBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: radial-gradient(ellipse at center, #0a0e27 0%, #020412 60%, #000000 100%);
+  }
+  .home .content {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  var canvas = document.getElementById('spaceBackground');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  var STAR_COUNT = 600;
+  var SHOOTING_STAR_INTERVAL = 4000;
+  var stars = [];
+  var shootingStars = [];
+  var animationId = null;
+  var width = 0;
+  var height = 0;
+
+  function resize() {
+    var container = canvas.parentElement;
+    width = container.offsetWidth;
+    height = container.offsetHeight;
+    canvas.width = width;
+    canvas.height = height;
+  }
+
+  function createStar() {
+    return {
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 1.8 + 0.2,
+      opacity: Math.random() * 0.6 + 0.4,
+      twinkleSpeed: Math.random() * 0.02 + 0.005,
+      twinklePhase: Math.random() * Math.PI * 2,
+      color: d3.interpolateRgb(
+        d3.rgb(200, 220, 255),
+        d3.rgb(255, 240, 220)
+      )(Math.random())
+    };
+  }
+
+  function createShootingStar() {
+    var startX = Math.random() * width * 0.8;
+    var startY = Math.random() * height * 0.4;
+    var angle = Math.PI / 6 + Math.random() * Math.PI / 6;
+    return {
+      x: startX,
+      y: startY,
+      length: 60 + Math.random() * 80,
+      speed: 8 + Math.random() * 6,
+      angle: angle,
+      opacity: 1,
+      life: 0,
+      maxLife: 40 + Math.random() * 30
+    };
+  }
+
+  function initStars() {
+    stars = [];
+    for (var i = 0; i < STAR_COUNT; i++) {
+      stars.push(createStar());
+    }
+  }
+
+  function drawStar(star, time) {
+    var twinkle = Math.sin(time * star.twinkleSpeed + star.twinklePhase);
+    var currentOpacity = star.opacity * (0.6 + 0.4 * twinkle);
+    var currentRadius = star.radius * (0.8 + 0.2 * twinkle);
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, currentRadius, 0, Math.PI * 2);
+    ctx.fillStyle = star.color;
+    ctx.globalAlpha = currentOpacity;
+    ctx.fill();
+
+    if (star.radius > 1.2) {
+      var gradient = ctx.createRadialGradient(
+        star.x, star.y, 0,
+        star.x, star.y, currentRadius * 3
+      );
+      gradient.addColorStop(0, star.color);
+      gradient.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, currentRadius * 3, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.globalAlpha = currentOpacity * 0.3;
+      ctx.fill();
+    }
+
+    ctx.globalAlpha = 1;
+  }
+
+  function drawShootingStar(ss) {
+    var tailX = ss.x - Math.cos(ss.angle) * ss.length;
+    var tailY = ss.y - Math.sin(ss.angle) * ss.length;
+
+    var gradient = ctx.createLinearGradient(tailX, tailY, ss.x, ss.y);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
+    gradient.addColorStop(0.7, 'rgba(200, 220, 255, ' + (ss.opacity * 0.5) + ')');
+    gradient.addColorStop(1, 'rgba(255, 255, 255, ' + ss.opacity + ')');
+
+    ctx.beginPath();
+    ctx.moveTo(tailX, tailY);
+    ctx.lineTo(ss.x, ss.y);
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(ss.x, ss.y, 2, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 255, 255, ' + ss.opacity + ')';
+    ctx.fill();
+  }
+
+  function addNebulae() {
+    var nebulaColors = [
+      { r: 40, g: 20, b: 80 },
+      { r: 20, g: 40, b: 80 },
+      { r: 60, g: 20, b: 60 }
+    ];
+    for (var i = 0; i < 3; i++) {
+      var nx = Math.random() * width;
+      var ny = Math.random() * height;
+      var nr = Math.min(width, height) * (0.2 + Math.random() * 0.3);
+      var c = nebulaColors[i % nebulaColors.length];
+      var gradient = ctx.createRadialGradient(nx, ny, 0, nx, ny, nr);
+      gradient.addColorStop(0, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ', 0.08)');
+      gradient.addColorStop(0.5, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ', 0.03)');
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    }
+  }
+
+  var nebulaCanvas = null;
+  function cacheNebulae() {
+    nebulaCanvas = document.createElement('canvas');
+    nebulaCanvas.width = width;
+    nebulaCanvas.height = height;
+    var nctx = nebulaCanvas.getContext('2d');
+    var saved = ctx;
+    ctx = nctx;
+    addNebulae();
+    ctx = saved;
+  }
+
+  var time = 0;
+  var lastShootingStar = 0;
+
+  function animate(timestamp) {
+    time = timestamp || 0;
+
+    ctx.clearRect(0, 0, width, height);
+
+    if (nebulaCanvas) {
+      ctx.drawImage(nebulaCanvas, 0, 0);
+    }
+
+    for (var i = 0; i < stars.length; i++) {
+      drawStar(stars[i], time);
+    }
+
+    if (time - lastShootingStar > SHOOTING_STAR_INTERVAL) {
+      shootingStars.push(createShootingStar());
+      lastShootingStar = time;
+    }
+
+    for (var j = shootingStars.length - 1; j >= 0; j--) {
+      var ss = shootingStars[j];
+      ss.x += Math.cos(ss.angle) * ss.speed;
+      ss.y += Math.sin(ss.angle) * ss.speed;
+      ss.life++;
+      if (ss.life > ss.maxLife * 0.6) {
+        ss.opacity = Math.max(0, 1 - (ss.life - ss.maxLife * 0.6) / (ss.maxLife * 0.4));
+      }
+      if (ss.life >= ss.maxLife || ss.x > width || ss.y > height) {
+        shootingStars.splice(j, 1);
+      } else {
+        drawShootingStar(ss);
+      }
+    }
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  function init() {
+    resize();
+    initStars();
+    cacheNebulae();
+    animate(0);
+  }
+
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      resize();
+      initStars();
+      cacheNebulae();
+    }, 150);
+  });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
